@@ -63,6 +63,10 @@ function updateBootcamp(bootcampId,bootcampObject){
   return BootcampCollection.findByIdAndUpdate(bootcampId,bootcampObject)
 }
 
+//Delete an item from the database
+function deleteBootcamp(bootcampId){
+  return BootcampCollection.findByIdAndDelete(bootcampId)
+}
 
 /* Step 5
  *
@@ -73,5 +77,6 @@ module.exports = {
   getOneBootcamp,
   getBootcamps,
   createBootcamp,
-  updateBootcamp
+  updateBootcamp,
+  deleteBootcamp
 }

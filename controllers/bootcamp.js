@@ -56,11 +56,19 @@ bootcampRouter.post('/',(req,res) => {
     })
 })
 
-//Updated a bootcamp oobject
+//Updated a bootcamp object
 bootcampRouter.put('/:bootcampId',(req,res) => {
   bootcampApi.updateBootcamp(req.params.bootcampId,req.body)
     .then(() => {
       res.send('Bootcamp was updated')
+    })
+})
+
+//delete an item object
+bootcampRouter.delete('/:bootcampId',(req,res) => {
+  bootcampApi.deleteBootcamp(req.params.bootcampId)
+    .then(() => {
+      res.send('Item was deleted')
     })
 })
 

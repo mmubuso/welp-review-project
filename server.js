@@ -17,7 +17,7 @@ const methodOverride = require('method-override')
  * import routers from controllers/
  *
  */
-const { templateRouter } = require('./controllers/template.js')
+const { bootcampRouter } = require('./controllers/bootcamp.js')
 
 
 /* Step 3
@@ -30,9 +30,7 @@ const { templateRouter } = require('./controllers/template.js')
  */
 
  //creates
-app.get('/', (req,res) => {
-    res.send('Home Page')
-})
+
 app.use(express.urlencoded({extended: true}))
 
 /* Step 3.b 
@@ -66,7 +64,8 @@ app.set('view engine', 'hbs')
  * add router for the application to use. The first argument is a prefix to all
  * the paths defined in the router.
  */
-app.use('/helloworld', templateRouter)
+
+app.use('/bootcamps', bootcampRouter)
 
 /* Step 5
  *

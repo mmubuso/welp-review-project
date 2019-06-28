@@ -58,6 +58,10 @@ function createBootcamp(bootcampObject){
   return BootcampCollection.create(bootcampObject)
 }
 
+//Update a bootcamp based on the id
+function updateBootcamp(bootcampId,bootcampObject){
+  return BootcampCollection.findByIdAndUpdate(bootcampId,bootcampObject)
+}
 
 
 /* Step 5
@@ -68,5 +72,6 @@ function createBootcamp(bootcampObject){
 module.exports = {
   getOneBootcamp,
   getBootcamps,
-  createBootcamp
+  createBootcamp,
+  updateBootcamp
 }

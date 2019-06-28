@@ -56,6 +56,14 @@ bootcampRouter.post('/',(req,res) => {
     })
 })
 
+//Updated a bootcamp oobject
+bootcampRouter.put('/:bootcampId',(req,res) => {
+  bootcampApi.updateBootcamp(req.params.bootcampId,req.body)
+    .then(() => {
+      res.send('Bootcamp was updated')
+    })
+})
+
  
 /* Step 6
  *

@@ -18,16 +18,16 @@ const mongoose = require('./connection.js')
  *
  */
 const BootcampSchema = new mongoose.Schema({
- name: String,
- location: String,
- courses: [
-   {
-     name: String,
-     cost: Number,
-     immersive: Boolean
-   }
- ]
-})
+  name: {
+    type: String,
+    required: true
+  },
+  location: {
+    type:String,
+    required: true
+   },
+  courses: Array
+ })
 
 /* Step 3
  *
@@ -48,6 +48,16 @@ function getBootcamps() {
   return BootcampCollection.find()
 }
 
+//Get a specific bootcamp
+function getOneBootcamp(bootcampId){
+  return BootcampCollection.findById(bootcampId)
+}
+
+//Add a new bootcamp 
+function createBootcamp(bootcampObject){
+  return BootcampCollection.create(bootcampObject)
+}
+
 
 
 /* Step 5
@@ -56,5 +66,7 @@ function getBootcamps() {
  * object
  */
 module.exports = {
-  getBootcamps
+  getOneBootcamp,
+  getBootcamps,
+  createBootcamp
 }

@@ -23,6 +23,7 @@ mongoose.connect(connectionString, { useNewUrlParser: true})
     console.log("connected to mongo at: " + connectionString);
   });
 
+  
 
 /* Export the mongoose object.
  *

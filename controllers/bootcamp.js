@@ -32,10 +32,7 @@ const bootcampRouter = express.Router()
  * TODO: Put all request handlers here
  */
 
-/* Step 5
- *
- * TODO: delete this handler; it's just a sample
- */ 
+//Get an entire list of all bootcamps
 bootcampRouter.get('/', (req, res) => {
   bootcampApi.getBootcamps()
     .then(bootcamps => {
@@ -43,6 +40,23 @@ bootcampRouter.get('/', (req, res) => {
     })
 })
 
+//Get exactly one bootcamp
+bootcampRouter.get('/:bootcampId',(req,res) => {
+  bootcampApi.getOneBootcamp(req.params.bootcampId)
+    .then(bootcamp => {
+      res.send(bootcamp)
+    })
+})
+
+//Create a new bootcamp object
+bootcampRouter.post('/',(req,res) => {
+  bootcampApi.createBootcamp(req.body)
+    .then(bootcamp => {
+      res.send('A new bootcamp has been created')
+    })
+})
+
+ 
 /* Step 6
  *
  * Export the router from the file.
